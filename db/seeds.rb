@@ -7,3 +7,19 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+puts "Cleaning database..."
+Restaurant.destroy_all
+
+puts "Creating restaurants..."
+chopsticks_house = {name: "chopsticks_house", address: "2 Bloomfield Ave, Bloomfield", phone_number: "(973) 743-8282", category: "chinese"}
+casa_bella = {name: "cassa_bella", address: "512 SW 3rd St Stuart, FL 34994", phone_number: "(772) 223-0077", category: "italian"}
+sushi_grill = {name: "sushi_grill", address: "512 SW 3rd St Stuart, FL 34994", phone_number: "(772) 223-0077", category: "japanese"}
+la_parada = {name: "la_parada", address: "855 4th Avenue Brooklyn", phone_number: "(27)631614913", category: "french"}
+krispy_king = {name: "sushi_grill", address: "19th crescent warren hills Avenue", phone_number: "(263)549068", category: "belgian"}
+
+
+[chopsticks_house,casa_bella,sushi_grill,la_parada,krispy_king].each do |attributes|
+  restaurant = Restaurant.create!(attributes)
+  puts "Created #{restaurant.name}"
+end
+puts "Finished!"
